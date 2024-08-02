@@ -1,5 +1,91 @@
+# Documentação da API do Backend
 
-#### Atualizar um Álbum
+## Visão Geral
+
+Este backend foi desenvolvido com o framework Laravel e oferece uma API RESTful para gerenciar álbuns e faixas. A API permite realizar operações CRUD em álbuns e criar e excluir faixas associadas a esses álbuns.
+
+#### Endpoints da API
+
+### Álbuns
+
+## Listar Álbuns
+
+- **Método:** `GET`
+- **Endpoint:** `/api/albums`
+- **Descrição:** Retorna uma lista de todos os álbuns.
+- **Resposta de Sucesso:**
+
+  ```json
+  [
+    {
+      "id": 1,
+      "title": "Título do Álbum",
+      "created_at": "2024-07-31T00:00:00.000000Z",
+      "updated_at": "2024-07-31T00:00:00.000000Z"
+    }
+  ]
+  ```
+  ## Criar um Novo Álbum
+
+- **Método:** POST
+
+- **Endpoint:** /api/albums
+
+- **Descrição:** Cria um novo álbum.
+
+### Parâmetros:
+
+- **title (string, obrigatório):** O título do álbum.
+
+**Corpo da Requisição:**
+```json
+
+{
+  "title": "Título do Novo Álbum"
+}
+````
+
+**Resposta de Sucesso:**
+
+```json
+
+{
+  "id": 2,
+  "title": "Título do Novo Álbum",
+  "created_at": "2024-07-31T00:00:00.000000Z",
+  "updated_at": "2024-07-31T00:00:00.000000Z"
+}
+```
+## Obter Detalhes de um Álbum
+**Método:** GET
+
+**Endpoint:** /api/albums/{id}
+
+**Descrição:** Retorna os detalhes de um álbum específico.
+
+**Parâmetros:**
+
+**id (integer, obrigatório):** O ID do álbum.
+
+**Resposta de Sucesso:**
+
+```json
+  {
+    "id": 1,
+    "title": "Título do Álbum",
+    "tracks": [
+      {
+        "id": 1,
+        "name": "Nome da Faixa",
+        "created_at": "2024-07-31T00:00:00.000000Z",
+        "updated_at": "2024-07-31T00:00:00.000000Z"
+      }
+    ],
+  "created_at": "2024-07-31T00:00:00.000000Z",
+  "updated_at": "2024-07-31T00:00:00.000000Z"
+}
+```
+## Atualizar um Álbum
 
 -   **Método:** `PUT`
  
@@ -11,15 +97,15 @@
  
 -   `id` (integer, obrigatório): O ID do álbum.
 
--  **Corpo da Requisição:**
+   **Corpo da Requisição:**
 
- -```json
+  ```json
      {
    "title": "Título Atualizado do Álbum"
      } 
-     ```
+   ```
 
--   **Resposta de Sucesso:**
+  **Resposta de Sucesso:**
 - ```json
      {
       "id": 1,
@@ -29,7 +115,7 @@
        }
   ```
 
-#### Excluir um Álbum
+## Excluir um Álbum
 
 -   **Método:** `DELETE`
  
@@ -40,6 +126,7 @@
 -   **Parâmetros:**
  
  -   `id` (integer, obrigatório): O ID do álbum.
+
 -   **Resposta de Sucesso:**
 - ``` json
    {
@@ -49,7 +136,7 @@
 
 ### Faixas
 
-#### Adicionar uma Faixa a um Álbum
+## Adicionar uma Faixa a um Álbum
 
 -   **Método:** `POST`
  
@@ -97,7 +184,7 @@
             }
        ```
 
-## Configuração do Backend
+#### Configuração do Backend
 
 ### Pré-requisitos
 
@@ -126,14 +213,14 @@
  ```bash
     cp .env.example .env` 
  ```
- ##Configure as variáveis de ambiente no arquivo `.env`:
+ ### Configure as variáveis de ambiente no arquivo `.env`:
    ```
-   `DB_CONNECTION=mysql,
+   DB_CONNECTION=mysql,
    DB_HOST=127.0.0.1
    DB_PORT=3306
    DB_DATABASE=discografiadb
    DB_USERNAME=root
-   DB_PASSWORD=1234` 
+   DB_PASSWORD=1234 
  ```
 4.  **Gere a Chave de Aplicação:**
  
