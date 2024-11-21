@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Este backend foi desenvolvido com o framework Laravel e oferece uma API RESTful para gerenciar álbuns e faixas. A API permite realizar operações CRUD em álbuns e criar e excluir faixas associadas a esses álbuns.
+Este backend foi desenvolvido com o framework Laravel e oferece uma API REST para gerenciar álbuns e faixas. A API permite realizar operações CRUD em álbuns e criar e excluir faixas associadas a esses álbuns.
 
 #### Endpoints da API
 
